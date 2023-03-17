@@ -43,8 +43,9 @@
 - source：图片任务（t2i/i2i）
 - prompt：图片的提示词
 
+注意为了prompt与csv格式匹配，将prompt中逗号换成分号，回车换成竖线：`s.replace(',', ';').replace('\n', '|')`
 
 多线程说明：
-- interval = 50     单个线程处理数据条数
-- workers = 30      线程池大小
+- interval = 50     单个线程处理数据条数，过小会提前结束
+- workers = 30      线程池大小，过大会线程溢出
 - lag = 0.5         两个线程之间的时间差
